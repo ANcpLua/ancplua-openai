@@ -6,13 +6,20 @@ The Codex plugin marketplace for everything ANcpLua builds for Codex. The catalo
 | Plugin | Repository | Purpose |
 | --- | --- | --- |
 | `ancplua-dotnet` | [ANcpLua/ancplua-dotnet](https://github.com/ANcpLua/ancplua-dotnet) | MSBuild, NuGet version chains, analyzer adoption, MSTest on Microsoft.Testing.Platform, layered NuGet releases |
+| `mstest-extensions` | [ANcpLua/mstest-extensions-plugin](https://github.com/ANcpLua/mstest-extensions-plugin) | Native MSTest/MTP execution, test writing, reusable extensions, quality reviews and Native AOT |
 
 ```bash
 codex plugin marketplace add ANcpLua/ancplua-openai
 codex plugin add ancplua-dotnet@ancplua-openai
+codex plugin add mstest-extensions@ancplua-openai
 ```
 
-Start a new session after installing. The same plugin repositories are listed for Claude Code in
+Plugins bundle their native skills, references and helpers. This GitHub marketplace
+supports direct installation independently of the universal OpenAI plugin directory
+and its submission eligibility rules. The skills remain available for automatic
+selection and explicit invocation after installation.
+
+Start a new session after installing. Claude Code has a separate catalog at
 [ANcpLua/ancplua-anthropic](https://github.com/ANcpLua/ancplua-anthropic).
 
 ## Official documentation inventory
