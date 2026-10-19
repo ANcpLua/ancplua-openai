@@ -1,0 +1,20 @@
+{
+  "name": "ancplua-openai",
+  "interface": {
+    "displayName": "ancplua"
+  },
+  "plugins": [
+    {
+      "name": "ancplua-dotnet",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/ANcpLua/ancplua-dotnet.git"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

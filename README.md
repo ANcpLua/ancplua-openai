@@ -1,6 +1,19 @@
 # ancplua-openai
 
-Documentation template for future OpenAI plugin work. No plugins have been added or evaluated.
+The Codex plugin marketplace for everything ANcpLua builds for Codex. The catalog lives in
+`.agents/plugins/marketplace.json`; every plugin is published from its own repository.
+
+| Plugin | Repository | Purpose |
+| --- | --- | --- |
+| `ancplua-dotnet` | [ANcpLua/ancplua-dotnet](https://github.com/ANcpLua/ancplua-dotnet) | MSBuild, NuGet version chains, analyzer adoption, MSTest on Microsoft.Testing.Platform, layered NuGet releases |
+
+```bash
+codex plugin marketplace add ANcpLua/ancplua-openai
+codex plugin add ancplua-dotnet@ancplua-openai
+```
+
+Start a new session after installing. The same plugin repositories are listed for Claude Code in
+[ANcpLua/ancplua-anthropic](https://github.com/ANcpLua/ancplua-anthropic).
 
 ## Official documentation inventory
 
