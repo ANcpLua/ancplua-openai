@@ -23,7 +23,7 @@ supports direct installation independently of the universal OpenAI plugin direct
 and its submission eligibility rules. The skills remain available for automatic
 selection and explicit invocation after installation.
 
-The qyl release is **17.0.0**, read from `plugins/qyl/plugin.json` in
+The qyl release is **17.0.1**, read from `plugins/qyl/plugin.json` in
 `ANcpLua/qyl`. Its marketplace entry follows the `plugins/qyl` subdirectory on
 `main`. Refresh this marketplace before installing an updated release:
 
