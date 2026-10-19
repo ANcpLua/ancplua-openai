@@ -7,11 +7,13 @@ The Codex plugin marketplace for everything ANcpLua builds for Codex. The catalo
 | --- | --- | --- |
 | `ancplua-dotnet` | [ANcpLua/ancplua-dotnet](https://github.com/ANcpLua/ancplua-dotnet) | MSBuild, NuGet version chains, analyzer adoption and layered NuGet releases; routes MSTest work to the companion |
 | `mstest-extensions` | [ANcpLua/mstest-extensions-plugin](https://github.com/ANcpLua/mstest-extensions-plugin) | Native MSTest/MTP execution, test writing, reusable extensions, quality reviews and Native AOT |
+| `qyl` | [ANcpLua/qyl](https://github.com/ANcpLua/qyl/tree/main/plugins/qyl) | Agent-focused telemetry investigation, .NET development and native MSTest workflows |
 
 ```bash
 codex plugin marketplace add ANcpLua/ancplua-openai
 codex plugin add ancplua-dotnet@ancplua-openai
 codex plugin add mstest-extensions@ancplua-openai
+codex plugin add qyl@ancplua-openai
 ```
 
 Plugins bundle their native skills, references and helpers. This GitHub marketplace
@@ -20,6 +22,16 @@ build, package, analyzer and release rules. The marketplace
 supports direct installation independently of the universal OpenAI plugin directory
 and its submission eligibility rules. The skills remain available for automatic
 selection and explicit invocation after installation.
+
+The qyl release is **17.0.0**, read from `plugins/qyl/plugin.json` in
+`ANcpLua/qyl`. Its marketplace entry follows the `plugins/qyl` subdirectory on
+`main`. Refresh this marketplace before installing an updated release:
+
+```bash
+codex plugin marketplace upgrade ancplua-openai
+codex plugin add qyl@ancplua-openai
+codex plugin list --marketplace ancplua-openai --json
+```
 
 Start a new session after installing. Claude Code has a separate catalog at
 [ANcpLua/ancplua-anthropic](https://github.com/ANcpLua/ancplua-anthropic).
