@@ -5,7 +5,7 @@ The Codex plugin marketplace for everything ANcpLua builds for Codex. The catalo
 
 | Plugin | Repository | Purpose |
 | --- | --- | --- |
-| `ancplua-dotnet` | [ANcpLua/ancplua-dotnet](https://github.com/ANcpLua/ancplua-dotnet) | MSBuild, NuGet version chains, analyzer adoption, MSTest on Microsoft.Testing.Platform, layered NuGet releases |
+| `ancplua-dotnet` | [ANcpLua/ancplua-dotnet](https://github.com/ANcpLua/ancplua-dotnet) | MSBuild, NuGet version chains, analyzer adoption and layered NuGet releases; routes MSTest work to the companion |
 | `mstest-extensions` | [ANcpLua/mstest-extensions-plugin](https://github.com/ANcpLua/mstest-extensions-plugin) | Native MSTest/MTP execution, test writing, reusable extensions, quality reviews and Native AOT |
 
 ```bash
@@ -15,6 +15,8 @@ codex plugin add mstest-extensions@ancplua-openai
 ```
 
 Plugins bundle their native skills, references and helpers. This GitHub marketplace
+assigns all MSTest guidance to `mstest-extensions`; `ancplua-dotnet` owns the shared
+build, package, analyzer and release rules. The marketplace
 supports direct installation independently of the universal OpenAI plugin directory
 and its submission eligibility rules. The skills remain available for automatic
 selection and explicit invocation after installation.
