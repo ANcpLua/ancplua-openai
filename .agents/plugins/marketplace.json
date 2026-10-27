@@ -1,14 +1,16 @@
 {
   "name": "ancplua-openai",
   "interface": {
-    "displayName": "ancplua"
+    "displayName": "ANcpLua .NET"
   },
   "plugins": [
     {
       "name": "ancplua-dotnet",
       "source": {
-        "source": "url",
-        "url": "https://github.com/ANcpLua/ancplua-dotnet.git"
+        "source": "git-subdir",
+        "url": "https://github.com/ANcpLua/ancplua-dotnet.git",
+        "path": "./packages/ancplua-dotnet",
+        "ref": "main"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -19,8 +21,10 @@
     {
       "name": "mstest-extensions",
       "source": {
-        "source": "url",
-        "url": "https://github.com/ANcpLua/mstest-extensions-plugin.git"
+        "source": "git-subdir",
+        "url": "https://github.com/ANcpLua/ancplua-dotnet.git",
+        "path": "./packages/mstest-extensions",
+        "ref": "main"
       },
       "policy": {
         "installation": "AVAILABLE",
@@ -32,8 +36,8 @@
       "name": "nami",
       "source": {
         "source": "git-subdir",
-        "url": "https://github.com/ANcpLua/opusfix.git",
-        "path": "./plugins/nami",
+        "url": "https://github.com/ANcpLua/ancplua-dotnet.git",
+        "path": "./packages/nami/plugins/nami",
         "ref": "main"
       },
       "policy": {
@@ -45,8 +49,10 @@
     {
       "name": "prepare-plugin-submission",
       "source": {
-        "source": "url",
-        "url": "https://github.com/ANcpLua/prepare-plugin-submission.git"
+        "source": "git-subdir",
+        "url": "https://github.com/ANcpLua/ancplua-dotnet.git",
+        "path": "./packages/prepare-plugin-submission",
+        "ref": "main"
       },
       "policy": {
         "installation": "AVAILABLE",
