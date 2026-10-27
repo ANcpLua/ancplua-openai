@@ -29,11 +29,11 @@
       "category": "Developer Tools"
     },
     {
-      "name": "qyl",
+      "name": "nami",
       "source": {
         "source": "git-subdir",
-        "url": "https://github.com/ANcpLua/qyl.git",
-        "path": "./plugins/qyl",
+        "url": "https://github.com/ANcpLua/opusfix.git",
+        "path": "./plugins/nami",
         "ref": "main"
       },
       "policy": {
