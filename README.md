@@ -1,13 +1,14 @@
 # ancplua-openai
 
 The Codex plugin marketplace for everything ANcpLua builds for Codex. The catalog lives in
-`.agents/plugins/marketplace.json`; every plugin is published from its own repository.
+`.agents/plugins/marketplace.json`; each plugin has one canonical source repository. The former standalone `nami` catalog is retired.
 
 | Plugin | Repository | Purpose |
 | --- | --- | --- |
 | `ancplua-dotnet` | [ANcpLua/ancplua-dotnet](https://github.com/ANcpLua/ancplua-dotnet) | MSBuild, NuGet version chains, analyzer adoption and layered NuGet releases; routes MSTest work to the companion |
 | `mstest-extensions` | [ANcpLua/mstest-extensions-plugin](https://github.com/ANcpLua/mstest-extensions-plugin) | Native MSTest/MTP execution, test writing, reusable extensions, quality reviews and Native AOT |
-| `nami` | [ANcpLua/opusfix](https://github.com/ANcpLua/opusfix/tree/main/plugins/nami) | C# unions, MSTest 4.5.1, assertions, fixture ownership and native Codex messaging |
+| `nami` | [ANcpLua/opusfix](https://github.com/ANcpLua/opusfix/tree/main/plugins/nami) | Current C# union, MSTest, assertion, fixture and Codex messaging guidance |
+| `prepare-plugin-submission` | [ANcpLua/prepare-plugin-submission](https://github.com/ANcpLua/prepare-plugin-submission) | Submission preparation |
 
 ```bash
 codex plugin marketplace add ANcpLua/ancplua-openai
@@ -17,24 +18,22 @@ codex plugin add nami@ancplua-openai
 ```
 
 Plugins bundle their native skills, references and helpers. This GitHub marketplace
-assigns all MSTest guidance to `mstest-extensions`; `ancplua-dotnet` owns the shared
-build, package, analyzer and release rules. The marketplace
+uses `nami` 0.1.1 for current MSTest 4.5.1 APIs, assertions and fixture ownership.
+`mstest-extensions` retains its specialized execution and review references;
+`ancplua-dotnet` owns general build, package, analyzer and release guidance.
+Select the matching owner rather than loading both testing packages for one task. The marketplace
 supports direct installation independently of the universal OpenAI plugin directory
 and its submission eligibility rules. The skills remain available for automatic
 selection and explicit invocation after installation.
 
-The nami version is read from `plugins/nami/plugin.json` in
-`ANcpLua/opusfix`. Its marketplace entry follows the `plugins/nami` subdirectory on
-`main`. Refresh this marketplace before installing an updated release:
+Refresh this marketplace before installing an updated release:
 
 ```bash
 codex plugin marketplace upgrade ancplua-openai
-codex plugin add nami@ancplua-openai
 codex plugin list --marketplace ancplua-openai --json
 ```
 
-Start a new session after installing. Claude Code has a separate catalog at
-[ANcpLua/ancplua-anthropic](https://github.com/ANcpLua/ancplua-anthropic).
+Start a new session after changing installed plugins. This is the only own Codex marketplace.
 
 ## Official documentation inventory
 
@@ -60,3 +59,23 @@ The primary official documentation collection is [OpenAI Plugins](https://develo
 | Evaluation design | [Evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices) |
 
 Specialized product workflows are conditionally applicable: [local-services quote conversion](https://developers.openai.com/plugins/guides/local-services-request-quote-conversion-spec), [product checkout](https://developers.openai.com/plugins/guides/product-checkout-conversion-spec), and [restaurant reservations](https://developers.openai.com/plugins/guides/restaurant-reservation-conversion-spec).
+
+## Local source development
+
+Generate a machine-local catalog view from the same entries. This links source
+directories and does not copy their skills. Explicit local paths preserve edits
+that have not been published yet:
+
+```sh
+python3 scripts/local_marketplace.py \
+  --source ancplua-dotnet=../stale/ancplua-dotnet \
+  --source mstest-extensions=../stale/mstest-extensions-plugin \
+  --source nami=../nami-plugin/plugins/nami \
+  --source prepare-plugin-submission=../stale/prepare-plugin-submission
+codex plugin marketplace add ./.local/marketplace
+```
+
+The checked-in catalog remains portable and names the source repositories.
+The generated local view is ignored by Git and must not be published as a plugin
+archive. Installing plugins is a separate action from registering the catalog.
+`dedup-map.json` records the sixteen retired qyl copies and canonical fingerprints.

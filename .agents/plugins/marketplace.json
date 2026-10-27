@@ -41,6 +41,18 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Developer Tools"
+    },
+    {
+      "name": "prepare-plugin-submission",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/ANcpLua/prepare-plugin-submission.git"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
     }
   ]
 }
