@@ -79,3 +79,23 @@ The checked-in catalog remains portable and names the source repositories.
 The generated local view is ignored by Git and must not be published as a plugin
 archive. Installing plugins is a separate action from registering the catalog.
 `dedup-map.json` records the sixteen retired qyl copies and canonical fingerprints.
+
+
+## Skill source ownership after cleanup
+
+- Nami's union source is `../nami/.agents/skills/csharp-union-types`; the copy in
+  `../nami-plugin/plugins/nami/skills` is its checked export. The extra
+  `stale/csharp-union-types` checkout was removed. Union sync exports only to the
+  plugin unless an additional distribution is explicitly selected.
+- The eleven macOS skills are maintained in `~/.local/share/chezmoi/.agents/skills`
+  and deployed to `~/.agents/skills`. The extra `stale/dotfiles` checkout was
+  removed after its already-published commit was fast-forwarded into that source.
+- Installed plugin caches, Chezmoi deployment files and the generated Claude
+  package for Submission Studio are distribution outputs. Maintain their source;
+  do not delete or independently edit those outputs as if they were competing sources.
+- Nami's `fixture-lifecycle` owns product-specific workspace retention and cleanup.
+  The plugin's `fixture-scope` owns portable MSTest fixture guidance. They have
+  different responsibilities and remain separate.
+- Qyl remains available for the pending auto-instrumentation comparison. Its
+  product-specific skills are outside this cleanup; it is not part of the Nami
+  developer plugin. The retired Downloads prototype was explicitly deleted.
